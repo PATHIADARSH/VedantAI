@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VedantAI – AI Automation & IT Solutions</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 50px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar img {
+            height: 60px;
+        }
+
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            color: #0052CC;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 60px;
+            background: #f5f5f5;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #0052CC;
+        }
+
+        .hero-text span {
+            color: #f5a623;
+        }
+
+        .hero-text p {
+            margin-top: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .hero button {
+            margin-top: 20px;
+            padding: 14px 28px;
+            background: #0052cc;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: #003d99;
+        }
+
+        .hero-img img {
+            width: 420px;
+            max-width: 100%;
+        }
+
+        /* Section Headers */
+        .section {
+            padding: 60px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 34px;
+            color: #0052CC;
+        }
+
+        /* Cards layout */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .card {
+            width: 300px;
+            background: #ffffff;
+            margin: 15px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .card h3 {
+            margin: 0;
+            color: #f5a623;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <img src="assets/logo.png" alt="VedantAI Logo">
+        <div>
+            <a href="#">Home</a>
+            <a href="#trainings">Trainings</a>
+            <a href="#services">AI Automation</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Welcome to <span>VedantAI</span></h1>
+            <p>We build Agent-Based AI Automation Solutions and deliver
+            world-class AI & Cloud certification trainings for engineering colleges,
+            corporates, and industry-specific institutions.</p>
+
+            <button onclick="window.location='#contact'">Get in Touch</button>
+        </div>
+
+        <div class="hero-img">
+            <img src="assets/logo.png" alt="AI Theme">
+        </div>
+    </div>
+
+    <!-- TRAINING PROGRAMS -->
+    <div id="trainings" class="section">
+        <h2>Microsoft Certification Programs</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Fundamentals</h3>
+                <p>AZ-900 | AI-900 | DP-900 | PL-900 | SC-900</p>
+            </div>
+
+            <div class="card">
+                <h3>Associate Level</h3>
+                <p>AI-102 | AZ-104 | PL-300 | Azure Security Certifications</p>
+            </div>
+
+            <div class="card">
+                <h3>Custom Curriculum</h3>
+                <p>CSE, ECE, Civil, Mechanical, MBA, Finance, Agriculture & More</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI AUTOMATION SERVICES -->
+    <div id="services" class="section">
+        <h2>AI Automation & IT Solutions</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>AI Agents</h3>
+                <p>Build intelligent workflow automation using agent-based models.</p>
+            </div>
+
+            <div class="card">
+                <h3>Custom AI Solutions</h3>
+                <p>Chatbots, vision systems, document intelligence, RPA integration.</p>
+            </div>
+
+            <div class="card">
+                <h3>Industry Solutions</h3>
+                <p>Healthcare, finance, education, agriculture, manufacturing.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Email: info@vedantai.in</p>
+        <p>Phone: +91 XXXXXXXXXX</p>
+    </div>
+
+    <div class="footer">
+        © 2025 VedantAI IT Solutions Pvt Ltd. All Rights Reserved.
+    </div>
+
+</body>
+</html>

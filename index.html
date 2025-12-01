@@ -4,416 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blue Vedant AI - Professional Ed-Tech Platform</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #1a1a1a;
-            background-color: #f8f9fa;
-            line-height: 1.6;
-        }
-
-        /* Navbar */
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 50px;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 24px;
-            font-weight: 700;
-            color: #001a4d;
-            text-decoration: none;
-        }
-
-        .navbar-logo img {
-            height: 50px;
-            width: auto;
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .navbar-links a {
-            text-decoration: none;
-            color: #1a1a1a;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .navbar-links a:hover {
-            color: #f0a500;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #001a4d 0%, #0033cc 100%);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 26, 77, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
-            padding: 80px 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 600px;
-        }
-
-        .hero-content {
-            flex: 1;
-            max-width: 600px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            color: #001a4d;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 50px;
-            background: white;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 40px;
-            color: #001a4d;
-            margin-bottom: 60px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid #f0a500;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .feature-card h3 {
-            font-size: 22px;
-            color: #001a4d;
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 50px;
-            background: #f0f4ff;
-        }
-
-        .services h2 {
-            text-align: center;
-            font-size: 40px;
-            color: #001a4d;
-            margin-bottom: 60px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .service-item {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-
-        .service-item:hover {
-            box-shadow: 0 8px 20px rgba(240, 165, 0, 0.2);
-            border-top: 4px solid #f0a500;
-        }
-
-        .service-item h3 {
-            color: #001a4d;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, #001a4d 0%, #0033cc 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 50px;
-        }
-
-        .cta h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .cta p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        .btn-light {
-            background: white;
-            color: #001a4d;
-            padding: 12px 40px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-light:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: #0a0e27;
-            color: white;
-            text-align: center;
-            padding: 30px 50px;
-            border-top: 2px solid #001a4d;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        .footer-links {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .footer-links a {
-            color: #f0a500;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 15px 20px;
-            }
-
-            .hero {
-                flex-direction: column;
-                padding: 40px 20px;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .navbar-links {
-                gap: 15px;
-            }
-
-            .features, .services, .cta {
-                padding: 40px 20px;
-            }
-        }
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {font-family: 'Poppins', sans-serif; color: #1a1a1a; background-color: #f8f9fa; line-height: 1.6;}
+        .navbar {display: flex; align-items: center; justify-content: space-between; padding: 15px 50px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;}
+        .navbar-logo {display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 700; color: #001a4d; text-decoration: none;}
+        .navbar-logo img {height: 50px; width: auto;}
+        .navbar-links {display: flex; gap: 30px; align-items: center;}
+        .navbar-links a {text-decoration: none; color: #1a1a1a; font-weight: 500; transition: color 0.3s;}
+        .navbar-links a:hover {color: #f0a500;}
+        .btn-primary {background: linear-gradient(135deg, #001a4d 0%, #0033cc 100%); color: white; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s;}
+        .btn-primary:hover {transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,26,77,0.3);}
+        .hero {background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%); padding: 80px 50px; display: flex; align-items: center; justify-content: space-between; min-height: 600px;}
+        .hero-content {flex: 1; max-width: 600px;}
+        .hero h1 {font-size: 48px; font-weight: 700; color: #001a4d; margin-bottom: 20px; line-height: 1.2;}
+        .hero p {font-size: 18px; color: #555; margin-bottom: 30px; line-height: 1.8;}
+        .hero-image {flex: 1; text-align: center;}
+        .hero-image img {max-width: 100%; height: auto;}
+        .section {padding: 80px 50px;}
+        h2 {text-align: center; font-size: 40px; color: #001a4d; margin-bottom: 60px;}
+        .certifications {background: white;}
+        .cert-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;}
+        .cert-card {background: #f0f4ff; padding: 25px; border-radius: 10px; text-align: center; border-left: 4px solid #f0a500; transition: all 0.3s;}
+        .cert-card:hover {transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1);}
+        .cert-card h3 {color: #001a4d; font-size: 18px; margin-bottom: 10px;}
+        .cert-card p {color: #666; font-size: 14px;}
+        .industries {background: #f0f4ff;}
+        .industry-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;}
+        .industry-card {background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.3s;}
+        .industry-card:hover {box-shadow: 0 8px 20px rgba(240,165,0,0.2); border-top: 4px solid #f0a500;}
+        .industry-card h3 {color: #001a4d; font-size: 18px; margin-bottom: 8px;}
+        .cta {background: linear-gradient(135deg, #001a4d 0%, #0033cc 100%); color: white; text-align: center; padding: 60px 50px;}
+        .cta h2 {color: white; margin-bottom: 20px;}
+        .btn-light {background: white; color: #001a4d; padding: 12px 40px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s;}
+        .btn-light:hover {transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,255,255,0.3);}
+        footer {background: #0a0e27; color: white; text-align: center; padding: 30px 50px; border-top: 2px solid #001a4d;}
+        .footer-links {margin-top: 15px; display: flex; justify-content: center; gap: 20px;}
+        .footer-links a {color: #f0a500; text-decoration: none; font-size: 14px;}
+        .whatsapp-btn {position: fixed; bottom: 30px; right: 30px; background: #25D366; border-radius: 50%; width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.3s; z-index: 999;}
+        .whatsapp-btn:hover {transform: scale(1.1); box-shadow: 0 6px 20px rgba(37,211,102,0.4);}
+        @media (max-width: 768px) {.navbar {flex-direction: column; gap: 15px;} .hero {flex-direction: column; padding: 40px 20px;} .section {padding: 40px 20px;} h1 {font-size: 32px;} .whatsapp-btn {width: 60px; height: 60px; font-size: 32px;}}
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
-        <a href="#" class="navbar-logo">
-            <img src="logo.jpg.jpg" alt="Blue Vedant AI Logo">
-            <span>Blue Vedant AI</span>
-        </a>
+        <a href="#" class="navbar-logo"><img src="logo.jpg.jpg" alt="Logo"><span>Blue Vedant AI</span></a>
         <div class="navbar-links">
-            <a href="#features">Features</a>
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#industries">Industries</a>
+            <a href="#contact">Contact</a>
             <a href="#contact" class="btn-primary">Get Started</a>
         </div>
     </nav>
-
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Advanced AI Learning Platform for Industry & Certification</h1>
-            <p>Blue Vedant AI combines cutting-edge artificial intelligence with comprehensive IT training programs. Prepare for Microsoft certifications and industry-focused AI implementations with expert guidance.</p>
+            <p>Blue Vedant AI offers professional certifications and industry-focused AI training for engineers and IT professionals.</p>
             <a href="#contact" class="btn-primary">Start Your Journey</a>
         </div>
-        <div class="hero-image">
-            <img src="logo.jpg.jpg" alt="Platform Illustration" style="max-height: 300px;">
+        <div class="hero-image"><img src="logo.jpg.jpg" alt="Logo" style="max-height: 300px;"></div>
+    </section>
+    <section class="section certifications" id="certifications">
+        <h2>Our Certifications</h2>
+        <h3 style="text-align:center; color:#001a4d; font-size:24px; margin:40px 0 20px; font-weight:600;">Fundamental Level Global Certifications</h3>
+        <div class="cert-grid">
+            <div class="cert-card"><h3>AZ-900</h3><p>Azure Fundamentals - Cloud basics and Microsoft Azure essentials</p></div>
+            <div class="cert-card"><h3>DP-900</h3><p>Data Fundamentals - Data concepts and Azure data services</p></div>
+            <div class="cert-card"><h3>AI-900</h3><p>AI Fundamentals - Artificial Intelligence basics and Azure AI services</p></div>
+            <div class="cert-card"><h3>SC-900</h3><p>Security Fundamentals - Security, compliance, and trust concepts</p></div>
+            <div class="cert-card"><h3>PL-900</h3><p>Power Platform Fundamentals - Low-code platforms and automation</p></div>
+        </div>
+        <h3 style="text-align:center; color:#001a4d; font-size:24px; margin:50px 0 20px; font-weight:600;">Associate Level Certifications</h3>
+        <div class="cert-grid">
+            <div class="cert-card"><h3>AZ-104</h3><p>Azure Administrator Associate - Infrastructure and resource management</p></div>
+            <div class="cert-card"><h3>AI-102</h3><p>AI Engineer Associate - AI solutions design and implementation</p></div>
+            <div class="cert-card"><h3>PL-300</h3><p>Power BI Data Analyst Associate - Data analysis and visualization</p></div>
         </div>
     </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <h2>Why Choose Blue Vedant AI?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🧠</div>
-                <h3>AI-Powered Learning</h3>
-                <p>Intelligent algorithms adapt to your learning pace and style, ensuring personalized education.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎓</div>
-                <h3>Microsoft Certifications</h3>
-                <p>Comprehensive programs for AZ-104, AZ-900, and other Microsoft Azure certifications.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💼</div>
-                <h3>Industry Training</h3>
-                <p>Real-world AI applications and hands-on projects aligned with current industry demands.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Advanced Analytics</h3>
-                <p>Track your progress with detailed analytics and personalized recommendations.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Expert Mentorship</h3>
-                <p>Learn from industry experts and certified professionals with years of experience.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Secure & Reliable</h3>
-                <p>Enterprise-grade security with Azure cloud infrastructure for data protection.</p>
-            </div>
+    <section class="section industries" id="industries">
+        <h2>Industries We Serve</h2>
+        <p style="text-align:center; color:#666; margin-bottom:40px; font-size:16px;">Customized AI training programs tailored for different industry sectors</p>
+        <div class="industry-grid">
+            <div class="industry-card"><h3>🌾 Agriculture</h3><p>AI-powered farming solutions and precision agriculture</p></div>
+            <div class="industry-card"><h3>💰 FinTech</h3><p>Financial technology and AI-driven trading systems</p></div>
+            <div class="industry-card"><h3>🏥 Healthcare</h3><p>Medical AI applications and health tech innovation</p></div>
+            <div class="industry-card"><h3>🏭 Manufacturing</h3><p>Industrial automation and predictive maintenance</p></div>
+            <div class="industry-card"><h3>🛍️ Retail</h3><p>E-commerce optimization and customer analytics</p></div>
+            <div class="industry-card"><h3>📦 Logistics</h3><p>Supply chain optimization and route planning</p></div>
+            <div class="industry-card"><h3>🎓 Education</h3><p>EdTech solutions and learning analytics</p></div>
+            <div class="industry-card"><h3>🚗 Automotive</h3><p>Connected vehicles and autonomous systems</p></div>
         </div>
     </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <h2>Our Programs</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <h3>🎯 Azure Administrator (AZ-104)</h3>
-                <p>Master Azure management, infrastructure, and deployment strategies.</p>
-            </div>
-            <div class="service-item">
-                <h3>☁️ Azure Fundamentals (AZ-900)</h3>
-                <p>Begin your Azure journey with foundational cloud concepts.</p>
-            </div>
-            <div class="service-item">
-                <h3>🤖 AI Integration Training</h3>
-                <p>Implement AI solutions and machine learning models in real-world scenarios.</p>
-            </div>
-            <div class="service-item">
-                <h3>📱 Full-Stack Development</h3>
-                <p>Build complete applications with modern frameworks and cloud technologies.</p>
-            </div>
-            <div class="service-item">
-                <h3>💻 DevOps & Cloud Architecture</h3>
-                <p>Learn continuous integration, deployment, and scalable infrastructure design.</p>
-            </div>
-            <div class="service-item">
-                <h3>📈 Data Science & Analytics</h3>
-                <p>Extract insights from data using advanced analytics and visualization tools.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="contact">
+    <section class="section cta" id="contact">
         <h2>Ready to Transform Your Career?</h2>
-        <p>Join thousands of professionals who have advanced their skills with Blue Vedant AI</p>
+        <p style="margin-bottom:30px; font-size:16px;">Contact us via WhatsApp or get started with our certification programs today</p>
         <a href="#" class="btn-light">Enroll Now</a>
     </section>
-
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Blue Vedant AI. All rights reserved.</p>
         <p>Professional Ed-Tech Platform for AI & Cloud Training</p>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Blog</a>
-        </div>
+        <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
     </footer>
+    <a href="https://wa.me/918501039031?text=Hello%20Blue%20Vedant%20AI%2C%20I%20am%20interested%20in%20your%20certifications%20and%20AI%20training%20programs." class="whatsapp-btn" title="Contact on WhatsApp">💬</a>
 </body>
 </html>

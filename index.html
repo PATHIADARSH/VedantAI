@@ -13,8 +13,8 @@
             --secondary: #00FFB2;
             --accent: #FF006E;
             --bg: #030616;
-            --glass: rgba(10, 14, 39, 0.85);
-            --border: rgba(0, 217, 255, 0.35);
+            --glass: rgba(10, 14, 39, 0.95);
+            --border: rgba(0, 217, 255, 0.20);
             --text: #e0e6ff;
         }
         body {
@@ -26,24 +26,28 @@
         }
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(15px); } }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
         @keyframes bounce { 0%,100%{transform: translateY(0);} 50%{transform: translateY(-5px);} }
 
         /* NAVBAR */
         .navbar {
             position: sticky; top: 0; z-index: 1000;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 18px 50px;
+            padding: 12px 28px;
             background: rgba(3, 6, 22, 0.94); backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
         .logo-container {
-            font-size: 26px; font-weight: 800;
+            display:flex; align-items:center; gap:12px;
+        }
+        .logo-container img { height: 42px; width: auto; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+        .logo-text {
+            font-size: 20px; font-weight: 800;
             background: linear-gradient(135deg, #00D9FF, #00FFB2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .nav-links { display: flex; gap: 35px; align-items: center; }
+        .nav-links { display: flex; gap: 18px; align-items: center; }
         .nav-links a {
             color: var(--text); text-decoration: none; font-weight: 500;
             position: relative;
@@ -57,8 +61,8 @@
 
         .btn {
             border: none; cursor: pointer; border-radius: 8px;
-            font-weight: 600; padding: 12px 26px;
-            transition: 0.3s;
+            font-weight: 600; padding: 10px 20px;
+            transition: 0.25s;
         }
         .btn-primary {
             background: linear-gradient(135deg, #00D9FF, #00FFB2); color: #030616;
@@ -67,46 +71,46 @@
         .btn-secondary {
             border: 2px solid var(--primary); background: transparent; color: var(--primary);
         }
-        .btn-secondary:hover { background: rgba(0,217,255,0.1); }
+        .btn-secondary:hover { background: rgba(0,217,255,0.06); }
 
         /* HERO SECTION */
         .hero {
-            min-height: 100vh; display: flex; justify-content: center; align-items: center;
+            min-height: 80vh; display: flex; justify-content: center; align-items: center;
             padding: 80px 50px; text-align: center; position: relative;
         }
         .hero::before {
             content: ""; position: absolute;
             width: 350px; height: 350px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(0,217,255,0.25), transparent 70%);
+            background: radial-gradient(circle, rgba(0,217,255,0.18), transparent 70%);
             top: -50px; right: 10%; animation: float 6s infinite;
         }
         .hero h1 {
-            font-size: 64px; line-height: 1.1; font-weight: 800;
+            font-size: 56px; line-height: 1.05; font-weight: 800;
             background: linear-gradient(135deg,#00D9FF,#00FFB2,#FF006E);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
         }
-        .hero p { font-size: 20px; opacity: 0.85; margin-bottom: 40px; }
+        .hero p { font-size: 18px; opacity: 0.85; margin-bottom: 30px; }
 
         /* SECTIONS */
-        .section { padding: 100px 50px; }
+        .section { padding: 80px 50px; }
         .section-title {
-            font-size: 50px; font-weight: 800; text-align: center; margin-bottom: 60px;
+            font-size: 44px; font-weight: 800; text-align: center; margin-bottom: 40px;
             background: linear-gradient(135deg,#00D9FF,#00FFB2);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .programs-grid {
-            display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 24px;
         }
         .card {
-            background: var(--glass); padding: 40px; border-radius: 16px;
-            border: 1px solid var(--border); backdrop-filter: blur(10px);
+            background: var(--glass); padding: 28px; border-radius: 12px;
+            border: 1px solid var(--border); backdrop-filter: blur(6px);
             transition: 0.3s;
         }
         .card:hover { transform: translateY(-8px); border-color: var(--primary); }
-        .card-icon { font-size: 48px; margin-bottom: 15px; animation: bounce 3s infinite; }
-        .card h3 { color: var(--primary); margin-bottom: 10px; font-size: 24px; }
-        .card p { opacity: 0.75; }
+        .card-icon { font-size: 40px; margin-bottom: 12px; animation: bounce 3s infinite; }
+        .card h3 { color: var(--primary); margin-bottom: 8px; font-size: 20px; }
+        .card p { opacity: 0.75; font-size: 14px; }
 
         /* CHATBOT */
         .ved-bot {
@@ -114,20 +118,57 @@
             width: 70px; height: 70px; border-radius: 50%;
             background: linear-gradient(135deg,#00D9FF,#00FFB2);
             display: flex; align-items: center; justify-content: center;
-            font-size: 40px; cursor: pointer; animation: pulse 2s infinite;
+            font-size: 36px; cursor: pointer; animation: pulse 2s infinite;
             z-index: 998;
+            box-shadow: 0 8px 30px rgba(0,217,255,0.12);
         }
         .ved-panel {
             position: fixed; bottom: 120px; right: 110px;
-            width: 340px; background: var(--glass);
-            border-radius: 16px; padding: 20px;
+            width: 360px; background: var(--glass);
+            border-radius: 16px; padding: 14px;
             border: 1px solid var(--border); display: none;
+            z-index: 999;
         }
         .ved-panel.active { display: block; }
+        .ved-title { font-size: 18px; margin-bottom: 10px; color:var(--primary); }
+
+        .chat-window {
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px; padding: 10px; max-height: 300px; overflow-y: auto;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+        .messages { display:flex; flex-direction:column; gap:10px; }
+
+        .msg {
+            max-width: 78%; padding: 8px 12px; border-radius: 12px; line-height: 1.2; font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            word-wrap: break-word;
+        }
+        .msg.user {
+            align-self: flex-end; background: linear-gradient(135deg,#00D9FF,#00FFB2); color: #030616;
+            border-bottom-right-radius: 4px;
+        }
+        .msg.bot {
+            align-self: flex-start; background: rgba(255,255,255,0.03); color: var(--text);
+            border-bottom-left-radius: 4px; border: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .question-list { margin-top:12px; display:flex; flex-direction:column; gap:8px; }
         .ved-question {
-            padding: 10px; background: rgba(0,217,255,0.1);
-            border-left: 3px solid var(--primary); margin: 10px 0;
-            cursor: pointer;
+            padding: 10px; background: rgba(0,217,255,0.06);
+            border-left: 3px solid var(--primary); cursor: pointer; border-radius:8px;
+            font-size: 14px;
+        }
+        .ved-question:hover { background: rgba(0,217,255,0.10); }
+
+        .input-row { display:flex; gap:8px; margin-top:10px; }
+        .input-row input {
+            flex:1; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04);
+            background: transparent; color: var(--text);
+        }
+        .input-row button {
+            padding:8px 12px; border-radius:8px; border:none; cursor:pointer;
+            background: linear-gradient(135deg,#00D9FF,#00FFB2); color:#030616;
         }
 
         /* WHATSAPP BUTTON */
@@ -138,7 +179,8 @@
             background: linear-gradient(135deg, #25D366, #1ab74a);
             display: flex; align-items: center; justify-content: center;
             color: white; text-decoration: none;
-            z-index: 999;
+            z-index: 997;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
         }
 
         /* FOOTER */
@@ -148,6 +190,9 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 36px; }
+            .ved-panel { right: 20px; left: 20px; width: auto; bottom: 110px; }
+            .navbar { padding: 12px 16px; }
+            .nav-links { display:none; }
         }
     </style>
 </head>
@@ -156,7 +201,11 @@
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="logo-container">BlueVedantAI</div>
+        <div class="logo-container">
+            <!-- Using the existing repo logo file -->
+            <img src="logo.jpg.jpg" alt="BlueVedantAI Logo">
+            <div class="logo-text">BlueVedantAI</div>
+        </div>
         <div class="nav-links">
             <a href="#certifications">Certifications</a>
             <a href="#technical">Technical Courses</a>
@@ -231,22 +280,34 @@
 
     <div class="ved-panel" id="vedPanel">
         <h3 class="ved-title">Hi! I’m VED 👋</h3>
-        <p>Choose a question:</p>
 
-        <div class="ved-question" onclick="alert('We offer Microsoft, AWS, GCP, Oracle certifications with labs and mock exams!')">
-            What certifications do you offer?
+        <div class="chat-window" id="chatWindow">
+            <div class="messages" id="vedMessages">
+                <!-- messages will be appended here -->
+            </div>
         </div>
 
-        <div class="ved-question" onclick="alert('We teach Python, Java, DSA, App Development, Web Dev, ML and more!')">
-            What technical courses are available?
+        <div class="question-list" id="quickQuestions">
+            <div class="ved-question" onclick="handleVedConversation('What certifications do you offer?', 'We offer Microsoft, AWS, GCP, and Oracle certifications with hands-on labs, mock exams, and instructor-led training.')">
+                What certifications do you offer?
+            </div>
+
+            <div class="ved-question" onclick="handleVedConversation('What technical courses are available?', 'We teach Python, Java, DSA, App Development, Web Dev, Machine Learning and more — all with projects.')">
+                What technical courses are available?
+            </div>
+
+            <div class="ved-question" onclick="handleVedConversation('Tell me about AI programs', 'We provide industry-specific AI programs for agriculture, fintech, healthcare, education, and custom AI training tailored to organizational needs.')">
+                Tell me about AI programs
+            </div>
+
+            <div class="ved-question" onclick="handleVedConversation('How can I enroll?', 'You can enroll by contacting us at 8501039031 or bluevedantai@gmail.com — we will guide you through the process.')">
+                How can I enroll?
+            </div>
         </div>
 
-        <div class="ved-question" onclick="alert('We provide AI programs for agriculture, fintech, healthcare, education and custom AI training!')">
-            Tell me about AI programs
-        </div>
-
-        <div class="ved-question" onclick="alert('Contact us at 8501039031 or bluevedantai@gmail.com')">
-            How can I enroll?
+        <div class="input-row">
+            <input id="vedInput" placeholder="Type a message..." aria-label="Chat input">
+            <button onclick="sendVedMessage()">Send</button>
         </div>
     </div>
 
@@ -267,8 +328,59 @@
 
     <script>
         function toggleVed() {
-            document.getElementById("vedPanel").classList.toggle("active");
+            const panel = document.getElementById("vedPanel");
+            panel.classList.toggle("active");
+            // focus input when opened
+            if (panel.classList.contains("active")) {
+                setTimeout(() => document.getElementById("vedInput").focus(), 120);
+            }
         }
+
+        function appendMessage(type, text) {
+            const container = document.getElementById("vedMessages");
+            const el = document.createElement("div");
+            el.className = 'msg ' + (type === 'user' ? 'user' : 'bot');
+            el.textContent = text;
+            container.appendChild(el);
+            // scroll to bottom
+            container.parentElement.scrollTop = container.parentElement.scrollHeight;
+        }
+
+        function handleVedConversation(userText, botText) {
+            // Append user message immediately
+            appendMessage('user', userText);
+            // Simulate typing delay, then append bot reply
+            setTimeout(() => {
+                appendMessage('bot', botText);
+            }, 550);
+        }
+
+        function sendVedMessage() {
+            const input = document.getElementById("vedInput");
+            const text = (input.value || "").trim();
+            if (!text) return;
+            appendMessage('user', text);
+            input.value = '';
+            // Simple canned reply - replace with real backend/API as needed
+            setTimeout(() => {
+                appendMessage('bot', 'Thanks for reaching out! Our team will contact you shortly. You can also call us at 8501039031 or email bluevedantai@gmail.com.');
+            }, 700);
+        }
+
+        // Optional: allow pressing Enter to send
+        document.getElementById('vedInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendVedMessage();
+            }
+        });
+
+        // Initialize with welcome message
+        (function initVed() {
+            setTimeout(() => {
+                appendMessage('bot', 'Hello! I’m VED 👋. Choose a quick question or type your message below.');
+            }, 300);
+        })();
     </script>
 
 </body>

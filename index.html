@@ -40,7 +40,8 @@
         .logo-container {
             display:flex; align-items:center; gap:12px;
         }
-        .logo-container img { height: 42px; width: auto; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+        /* ensure logo image background is transparent in the layout */
+        .logo-container img { height: 42px; width: auto; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); background: transparent; } 
         .logo-text {
             font-size: 20px; font-weight: 800;
             background: linear-gradient(135deg, #00D9FF, #00FFB2);
@@ -113,15 +114,24 @@
         .card p { opacity: 0.75; font-size: 14px; }
 
         /* CHATBOT */
-        .ved-bot {
+        /* wrapper that holds the chatbot image and the name below it */
+        .ved-bot-wrapper {
             position: fixed; bottom: 120px; right: 30px;
-            width: 70px; height: 70px; border-radius: 50%;
-            background: linear-gradient(135deg,#00D9FF,#00FFB2);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 36px; cursor: pointer; animation: pulse 2s infinite;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
             z-index: 998;
-            box-shadow: 0 8px 30px rgba(0,217,255,0.12);
         }
+        .ved-bot-img {
+            width: 70px; height: 70px; border-radius: 50%;
+            background: linear-gradient(135deg,#00D9FF,#00FFB2); /* fallback if image missing */
+            display: inline-block; object-fit: cover; cursor: pointer; animation: pulse 2s infinite;
+            box-shadow: 0 8px 30px rgba(0,217,255,0.12); border: 2px solid rgba(255,255,255,0.03);
+        }
+        .ved-bot-img:focus { outline: none; box-shadow: 0 8px 40px rgba(0,217,255,0.18); }
+        .ved-bot-name {
+            font-size: 12px; color: var(--text); opacity: 0.95; text-align: center; font-weight: 700;
+            background: linear-gradient(135deg,#00D9FF,#00FFB2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
         .ved-panel {
             position: fixed; bottom: 120px; right: 110px;
             width: 360px; background: var(--glass);
@@ -193,6 +203,7 @@
             .ved-panel { right: 20px; left: 20px; width: auto; bottom: 110px; }
             .navbar { padding: 12px 16px; }
             .nav-links { display:none; }
+            .ved-bot-wrapper { right: 20px; bottom: 110px; }
         }
     </style>
 </head>
@@ -202,8 +213,8 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo-container">
-            <!-- Using the existing repo logo file -->
-            <img src="logo.jpg.jpg" alt="BlueVedantAI Logo">
+            <!-- Prefer a transparent PNG or SVG for the logo (logo.png) -->
+            <img src="logo.png" alt="BlueVedantAI Logo">
             <div class="logo-text">BlueVedantAI</div>
         </div>
         <div class="nav-links">
@@ -275,8 +286,12 @@
         </div>
     </section>
 
-    <!-- CHATBOT VED -->
-    <div class="ved-bot" onclick="toggleVed()">🤖</div>
+    <!-- CHATBOT VED: interactive image + name -->
+    <div class="ved-bot-wrapper">
+        <!-- Prefer a transparent PNG/SVG for ved logo (ved.png) -->
+        <img src="ved.png" alt="VED Chatbot" class="ved-bot-img" onclick="toggleVed()" aria-label="Open VED chat" />
+        <div class="ved-bot-name">VED</div>
+    </div>
 
     <div class="ved-panel" id="vedPanel">
         <h3 class="ved-title">Hi! I’m VED 👋</h3>
@@ -288,19 +303,19 @@
         </div>
 
         <div class="question-list" id="quickQuestions">
-            <div class="ved-question" onclick="handleVedConversation('What certifications do you offer?', 'We offer Microsoft, AWS, GCP, and Oracle certifications with hands-on labs, mock exams, and instructor-led training.')">
+            <div class="ved-question" onclick="handleVedConversation('What certifications do you offer?', 'We offer Microsoft, AWS, GCP, and Oracle certifications with hands-on labs, mock exams, and i...')">
                 What certifications do you offer?
             </div>
 
-            <div class="ved-question" onclick="handleVedConversation('What technical courses are available?', 'We teach Python, Java, DSA, App Development, Web Dev, Machine Learning and more — all with projects.')">
+            <div class="ved-question" onclick="handleVedConversation('What technical courses are available?', 'We teach Python, Java, DSA, App Development, Web Dev, Machine Learning and more — all with practical projects.')">
                 What technical courses are available?
             </div>
 
-            <div class="ved-question" onclick="handleVedConversation('Tell me about AI programs', 'We provide industry-specific AI programs for agriculture, fintech, healthcare, education, and custom AI training tailored to organizational needs.')">
+            <div class="ved-question" onclick="handleVedConversation('Tell me about AI programs', 'We provide industry-specific AI programs for agriculture, fintech, healthcare, education, and custom enterprise solutions.')">
                 Tell me about AI programs
             </div>
 
-            <div class="ved-question" onclick="handleVedConversation('How can I enroll?', 'You can enroll by contacting us at 8501039031 or bluevedantai@gmail.com — we will guide you through the process.')">
+            <div class="ved-question" onclick="handleVedConversation('How can I enroll?', 'You can enroll by contacting us at 8501039031 or bluevedantai@gmail.com — we will guide you through the process and next steps.')">
                 How can I enroll?
             </div>
         </div>

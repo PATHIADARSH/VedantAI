@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlueVedantAI - Future-Ready AI & Certification Programs</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -16,363 +17,259 @@
             --border: rgba(0, 217, 255, 0.35);
             --text: #e0e6ff;
         }
-        html, body { width: 100%; height: 100%; }
         body {
-            font-family: 'Outfit', 'Space Grotesk', sans-serif;
-            background: linear-gradient(135deg, #030616 0%, #0a0f2e 50%, #030616 100%);
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #030616, #0a0f2e, #030616);
             background-attachment: fixed;
             color: var(--text);
             overflow-x: hidden;
         }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(30px); } }
-        @keyframes pulse { 0%, 100% { opacity: 0.8; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(15px); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        @keyframes bounce { 0%,100%{transform: translateY(0);} 50%{transform: translateY(-5px);} }
 
         /* NAVBAR */
         .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
             padding: 18px 50px;
-            background: rgba(3, 6, 22, 0.96);
-            backdrop-filter: blur(20px);
+            background: rgba(3, 6, 22, 0.94); backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
         }
         .logo-container {
-            font-size: 26px;
-            font-weight: 800;
+            font-size: 26px; font-weight: 800;
             background: linear-gradient(135deg, #00D9FF, #00FFB2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .nav-links { display: flex; gap: 35px; }
-        .nav-links a { position: relative; font-weight: 500; }
+        .nav-links { display: flex; gap: 35px; align-items: center; }
+        .nav-links a {
+            color: var(--text); text-decoration: none; font-weight: 500;
+            position: relative;
+        }
         .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #00D9FF, #00FFB2);
-            transition: width 0.3s;
+            content: ""; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--primary);
+            transition: 0.3s;
         }
         .nav-links a:hover::after { width: 100%; }
+
         .btn {
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-            font-weight: 600;
-            padding: 12px 26px;
-            transition: all 0.3s;
+            border: none; cursor: pointer; border-radius: 8px;
+            font-weight: 600; padding: 12px 26px;
+            transition: 0.3s;
         }
         .btn-primary {
-            background: linear-gradient(135deg, #00D9FF, #00FFB2);
-            color: #030616;
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
+            background: linear-gradient(135deg, #00D9FF, #00FFB2); color: #030616;
         }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.7);
-        }
+        .btn-primary:hover { transform: translateY(-3px); }
         .btn-secondary {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            background: transparent;
+            border: 2px solid var(--primary); background: transparent; color: var(--primary);
         }
-        .btn-secondary:hover {
-            background: rgba(0, 217, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
-        }
+        .btn-secondary:hover { background: rgba(0,217,255,0.1); }
 
         /* HERO SECTION */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 50px;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(255, 0, 110, 0.08) 100%);
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh; display: flex; justify-content: center; align-items: center;
+            padding: 80px 50px; text-align: center; position: relative;
         }
         .hero::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(0, 217, 255, 0.25), transparent 70%);
-            border-radius: 50%;
-            top: -100px;
-            right: 10%;
-            animation: float 6s ease-in-out infinite;
-        }
-        .hero-content {
-            max-width: 750px;
-            z-index: 10;
-            text-align: center;
+            content: ""; position: absolute;
+            width: 350px; height: 350px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,217,255,0.25), transparent 70%);
+            top: -50px; right: 10%; animation: float 6s infinite;
         }
         .hero h1 {
-            font-size: 72px;
-            font-weight: 800;
-            line-height: 1.1;
+            font-size: 64px; line-height: 1.1; font-weight: 800;
+            background: linear-gradient(135deg,#00D9FF,#00FFB2,#FF006E);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #00D9FF 0%, #00FFB2 50%, #FF006E 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
-        .hero p {
-            font-size: 20px;
-            color: rgba(224, 230, 255, 0.85);
-            margin-bottom: 40px;
-        }
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .hero p { font-size: 20px; opacity: 0.85; margin-bottom: 40px; }
 
-        /* PROGRAMS SECTION */
-        .section {
-            padding: 100px 50px;
-        }
+        /* SECTIONS */
+        .section { padding: 100px 50px; }
         .section-title {
-            font-size: 56px;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 60px;
-            background: linear-gradient(135deg, #00D9FF, #00FFB2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 50px; font-weight: 800; text-align: center; margin-bottom: 60px;
+            background: linear-gradient(135deg,#00D9FF,#00FFB2);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 30px;
         }
         .card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 40px;
-            transition: all 0.35s;
+            background: var(--glass); padding: 40px; border-radius: 16px;
+            border: 1px solid var(--border); backdrop-filter: blur(10px);
+            transition: 0.3s;
         }
-        .card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.25);
-            transform: translateY(-8px);
-        }
-        .card-icon {
-            font-size: 56px;
-            margin-bottom: 20px;
-            animation: bounce 3s ease-in-out infinite;
-        }
-        .card h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        .card p {
-            color: rgba(224, 230, 255, 0.7);
-            margin-bottom: 20px;
-        }
+        .card:hover { transform: translateY(-8px); border-color: var(--primary); }
+        .card-icon { font-size: 48px; margin-bottom: 15px; animation: bounce 3s infinite; }
+        .card h3 { color: var(--primary); margin-bottom: 10px; font-size: 24px; }
+        .card p { opacity: 0.75; }
 
-        /* VED CHATBOT */
+        /* CHATBOT */
         .ved-bot {
-            position: fixed;
-            bottom: 120px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #00D9FF, #00FFB2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
-            cursor: pointer;
+            position: fixed; bottom: 120px; right: 30px;
+            width: 70px; height: 70px; border-radius: 50%;
+            background: linear-gradient(135deg,#00D9FF,#00FFB2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 40px; cursor: pointer; animation: pulse 2s infinite;
             z-index: 998;
-            animation: pulse 2s ease-in-out infinite;
-            transition: all 0.3s;
-        }
-        .ved-bot:hover {
-            transform: scale(1.12);
-            box-shadow: 0 0 40px rgba(0, 217, 255, 0.7);
         }
         .ved-panel {
-            position: fixed;
-            bottom: 120px;
-            right: 110px;
-            width: 380px;
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 25px;
-            z-index: 998;
-            max-height: 500px;
-            display: none;
+            position: fixed; bottom: 120px; right: 110px;
+            width: 340px; background: var(--glass);
+            border-radius: 16px; padding: 20px;
+            border: 1px solid var(--border); display: none;
         }
         .ved-panel.active { display: block; }
-        .ved-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
         .ved-question {
-            background: rgba(0, 217, 255, 0.1);
-            border-left: 3px solid var(--primary);
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 6px;
+            padding: 10px; background: rgba(0,217,255,0.1);
+            border-left: 3px solid var(--primary); margin: 10px 0;
             cursor: pointer;
-            transition: all 0.3s;
-        }
-        .ved-question:hover {
-            background: rgba(0, 217, 255, 0.2);
-            transform: translateX(5px);
         }
 
         /* WHATSAPP BUTTON */
         .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 75px;
-            height: 75px;
+            position: fixed; bottom: 30px; right: 30px;
+            width: 75px; height: 75px; border-radius: 50%;
+            font-size: 40px;
             background: linear-gradient(135deg, #25D366, #1ab74a);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.5);
-            transition: all 0.3s;
+            display: flex; align-items: center; justify-content: center;
+            color: white; text-decoration: none;
             z-index: 999;
-            text-decoration: none;
-        }
-        .whatsapp-btn:hover {
-            transform: scale(1.15);
-            box-shadow: 0 0 40px rgba(37, 211, 102, 0.8);
         }
 
         /* FOOTER */
-        .footer {
-            background: rgba(5, 8, 16, 0.95);
-            padding: 60px 50px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .footer-section {
-            margin: 30px 0;
-        }
-        .footer-section h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin: 8px 0;
-            color: rgba(224, 230, 255, 0.8);
-        }
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 217, 255, 0.1);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            transition: all 0.3s;
-        }
-        .social-links a:hover {
-            background: var(--primary);
-            color: #030616;
-            transform: scale(1.1);
-        }
-        .copyright {
-            margin-top: 30px;
-            color: rgba(224, 230, 255, 0.6);
-            font-size: 14px;
-        }
+        .footer { padding: 60px 30px; background: rgba(5,8,16,0.95); text-align: center; margin-top: 80px; }
+        .footer h3 { color: var(--primary); margin-bottom: 10px; }
+        .contact-item { margin: 6px 0; opacity: 0.8; }
 
         @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; }
-            .hero { padding: 40px 20px; }
             .hero h1 { font-size: 36px; }
-            .section { padding: 50px 20px; }
-            .section-title { font-size: 32px; }
         }
     </style>
 </head>
+
 <body>
+
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo-container">BlueVedantAI</div>
         <div class="nav-links">
-            <a href="#programs">Programs</a>
-            <a href="#about">About</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#technical">Technical Courses</a>
+            <a href="#ai-programs">AI Programs</a>
             <button class="btn btn-secondary">Login</button>
             <button class="btn btn-primary">Get Started</button>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Future-Proof Your Career with Global Certifications & Industry-Led AI Programs</h1>
-            <p>Learn from industry experts. Build real-world skills. Step into the AI-powered future.</p>
-            <div class="cta-buttons">
-                <button class="btn btn-primary">Explore Programs</button>
-                <button class="btn btn-secondary" onclick="toggleVed()">Chat with VED</button>
-            </div>
+        <div>
+            <h1>Future-Proof Your Career with Global Certifications & AI Programs</h1>
+            <p>Learn from industry experts. Build real skills. Step into the AI-powered future.</p>
+            <button class="btn btn-primary">Explore Programs</button>
+            <button class="btn btn-secondary" onclick="toggleVed()">Chat with VED</button>
         </div>
     </section>
 
-    <!-- GLOBAL CERTIFICATION PROGRAMS -->
-    <section class="section" id="programs">
+    <!-- PROGRAM 1 -->
+    <section class="section" id="certifications">
         <h2 class="section-title">Global Certification Programs</h2>
         <div class="programs-grid">
             <div class="card">
                 <div class="card-icon">☁️</div>
                 <h3>Microsoft Azure</h3>
-                <p>AZ-900, AZ-104, AI-102 with labs, mock exams & placement support</p>
+                <p>AZ-900, AZ-104, AI-102 with mock exams & labs.</p>
             </div>
             <div class="card">
                 <div class="card-icon">🔶</div>
-                <h3>Amazon AWS</h3>
-                <p>AWS Solutions Architect with certification preparation & labs</p>
+                <h3>AWS</h3>
+                <p>AWS Solutions Architect with labs & certification prep.</p>
             </div>
             <div class="card">
                 <div class="card-icon">🟦</div>
                 <h3>Google Cloud</h3>
-                <p>GCP Associate Cloud Engineer with labs & mock exams</p>
+                <p>GCP Associate Cloud Engineer full training.</p>
             </div>
             <div class="card">
-                <div class
+                <div class="card-icon">📘</div>
+                <h3>Oracle</h3>
+                <p>OCI Foundations & Architect programs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM 2 -->
+    <section class="section" id="technical">
+        <h2 class="section-title">Technical Courses</h2>
+        <div class="programs-grid">
+            <div class="card"><div class="card-icon">💻</div><h3>Python</h3><p>Beginner → Advanced with projects.</p></div>
+            <div class="card"><div class="card-icon">⚙️</div><h3>Java & DSA</h3><p>DSA, OOP, System Design.</p></div>
+            <div class="card"><div class="card-icon">📱</div><h3>App Development</h3><p>Android / iOS full development.</p></div>
+            <div class="card"><div class="card-icon">🧪</div><h3>Machine Learning</h3><p>ML algorithms, projects & deployment.</p></div>
+        </div>
+    </section>
+
+    <!-- PROGRAM 3 -->
+    <section class="section" id="ai-programs">
+        <h2 class="section-title">Industry-Specific AI Programs</h2>
+        <div class="programs-grid">
+            <div class="card"><div class="card-icon">🌾</div><h3>AI for Agriculture</h3><p>Yield prediction, soil analytics, drones.</p></div>
+            <div class="card"><div class="card-icon">🏦</div><h3>AI for Fintech</h3><p>Risk scoring, fraud detection, automation.</p></div>
+            <div class="card"><div class="card-icon">🏥</div><h3>AI for Healthcare</h3><p>Diagnostics, imaging, medical AI.</p></div>
+            <div class="card"><div class="card-icon">🎓</div><h3>AI for Education</h3><p>Adaptive learning, AI tutors.</p></div>
+            <div class="card"><div class="card-icon">🤖</div><h3>Agentic AI + Prompt Engineering</h3><p>Build AI agents & master prompts.</p></div>
+        </div>
+    </section>
+
+    <!-- CHATBOT VED -->
+    <div class="ved-bot" onclick="toggleVed()">🤖</div>
+
+    <div class="ved-panel" id="vedPanel">
+        <h3 class="ved-title">Hi! I’m VED 👋</h3>
+        <p>Choose a question:</p>
+
+        <div class="ved-question" onclick="alert('We offer Microsoft, AWS, GCP, Oracle certifications with labs and mock exams!')">
+            What certifications do you offer?
+        </div>
+
+        <div class="ved-question" onclick="alert('We teach Python, Java, DSA, App Development, Web Dev, ML and more!')">
+            What technical courses are available?
+        </div>
+
+        <div class="ved-question" onclick="alert('We provide AI programs for agriculture, fintech, healthcare, education and custom AI training!')">
+            Tell me about AI programs
+        </div>
+
+        <div class="ved-question" onclick="alert('Contact us at 8501039031 or bluevedantai@gmail.com')">
+            How can I enroll?
+        </div>
+    </div>
+
+    <!-- WHATSAPP BUTTON -->
+    <a class="whatsapp-btn" target="_blank"
+       href="https://wa.me/918501039031?text=Hello!%20I%20want%20to%20know%20more%20about%20your%20AI%20and%20Technical%20Programs.">
+       💬
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <h3>Contact Us</h3>
+        <div class="contact-item">📞 Mobile: <b>8501039031</b></div>
+        <div class="contact-item">📧 Email: <b>bluevedantai@gmail.com</b></div>
+        <div class="contact-item">🏢 Company: <b>BlueVedantAI IT Solutions</b></div>
+        <p style="margin-top:20px; opacity:0.5;">© 2025 BlueVedantAI IT Solutions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleVed() {
+            document.getElementById("vedPanel").classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>

@@ -28,7 +28,14 @@
             overflow-x: hidden;
         }
         a { text-decoration: none; color: inherit; }
-
+        /* ANIMATIONS */
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(30px); } }
+        @keyframes pulse { 0%, 100% { opacity: 0.8; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes glow-text { 0%, 100% { text-shadow: 0 0 10px rgba(0, 217, 255, 0.5); } 50% { text-shadow: 0 0 20px rgba(0, 217, 255, 0.9); } }
+        
         /* NAVBAR */
         .navbar {
             position: sticky;
@@ -107,7 +114,6 @@
             background: rgba(0, 217, 255, 0.1);
             box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
         }
-
         /* HERO SECTION */
         .hero {
             min-height: 100vh;
@@ -193,12 +199,10 @@
             letter-spacing: 1px;
             margin-top: 10px;
         }
-
         /* PROGRAMS SECTION */
         .section {
             padding: 100px 50px;
             position: relative;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 217, 255, 0.03) 100%);
         }
         .section-title {
             font-size: 56px;
@@ -258,6 +262,7 @@
             color: rgba(224, 230, 255, 0.7);
             margin-bottom: 25px;
             line-height: 1.8;
+            font-size: 15px;
         }
         .card-meta {
             display: flex;
@@ -269,7 +274,6 @@
         }
         .duration { color: var(--secondary); }
         .price { font-size: 24px; font-weight: 800; color: var(--primary); }
-
         /* VED CHATBOT */
         .ved-bot {
             position: fixed;
@@ -330,7 +334,6 @@
             background: rgba(0, 217, 255, 0.2);
             transform: translateX(5px);
         }
-
         /* WHATSAPP BUTTON */
         .whatsapp-btn {
             position: fixed;
@@ -351,34 +354,4 @@
         }
         .whatsapp-btn:hover {
             transform: scale(1.15);
-            box-shadow: 0 0 40px rgba(37, 211, 102, 0.8);
-        }
-
-        /* FOOTER */
-        .footer {
-            background: rgba(5, 8, 16, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 60px 50px;
-            border-top: 1px solid var(--border);
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .footer-section {
-            margin: 30px 0;
-        }
-        .footer-section h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin: 8px 0;
-            color: rgba(
+            box-shadow: 0 0 40px rgba(37, 211, 102, 0

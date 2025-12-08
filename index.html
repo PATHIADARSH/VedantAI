@@ -12,11 +12,9 @@
             --secondary: #00FFB2;
             --accent: #FF006E;
             --bg: #030616;
-            --bg-soft: #0a0f2e;
             --glass: rgba(10, 14, 39, 0.85);
             --border: rgba(0, 217, 255, 0.35);
             --text: #e0e6ff;
-            --muted: #9aa0d6;
         }
         html, body { width: 100%; height: 100%; }
         body {
@@ -24,18 +22,13 @@
             background: linear-gradient(135deg, #030616 0%, #0a0f2e 50%, #030616 100%);
             background-attachment: fixed;
             color: var(--text);
-            line-height: 1.6;
             overflow-x: hidden;
         }
-        a { text-decoration: none; color: inherit; }
-        /* ANIMATIONS */
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(30px); } }
         @keyframes pulse { 0%, 100% { opacity: 0.8; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes glow-text { 0%, 100% { text-shadow: 0 0 10px rgba(0, 217, 255, 0.5); } 50% { text-shadow: 0 0 20px rgba(0, 217, 255, 0.9); } }
-        
+
         /* NAVBAR */
         .navbar {
             position: sticky;
@@ -51,29 +44,14 @@
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
         }
         .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
             font-size: 26px;
             font-weight: 800;
-            letter-spacing: 2px;
             background: linear-gradient(135deg, #00D9FF, #00FFB2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: glow-text 3s ease-in-out infinite;
         }
-        .logo-container img { height: 50px; filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.6)); }
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            align-items: center;
-        }
-        .nav-links a {
-            font-weight: 500;
-            position: relative;
-            transition: all 0.3s ease;
-        }
+        .nav-links { display: flex; gap: 35px; }
+        .nav-links a { position: relative; font-weight: 500; }
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -82,19 +60,16 @@
             width: 0;
             height: 2px;
             background: linear-gradient(90deg, #00D9FF, #00FFB2);
-            transition: width 0.3s ease;
+            transition: width 0.3s;
         }
         .nav-links a:hover::after { width: 100%; }
         .btn {
             border: none;
             cursor: pointer;
-            font-family: 'Outfit', sans-serif;
             border-radius: 8px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             padding: 12px 26px;
+            transition: all 0.3s;
         }
         .btn-primary {
             background: linear-gradient(135deg, #00D9FF, #00FFB2);
@@ -114,6 +89,7 @@
             background: rgba(0, 217, 255, 0.1);
             box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
         }
+
         /* HERO SECTION */
         .hero {
             min-height: 100vh;
@@ -121,7 +97,7 @@
             align-items: center;
             justify-content: center;
             padding: 80px 50px;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(0, 153, 255, 0.08) 50%, rgba(255, 0, 110, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(255, 0, 110, 0.08) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -130,28 +106,16 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(0, 217, 255, 0.25) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.25), transparent 70%);
             border-radius: 50%;
             top: -100px;
             right: 10%;
             animation: float 6s ease-in-out infinite;
         }
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(0, 153, 255, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: 50px;
-            left: 5%;
-            animation: float 8s ease-in-out infinite;
-        }
         .hero-content {
             max-width: 750px;
             z-index: 10;
             text-align: center;
-            animation: slideUp 1s ease-out;
         }
         .hero h1 {
             font-size: 72px;
@@ -161,13 +125,11 @@
             background: linear-gradient(135deg, #00D9FF 0%, #00FFB2 50%, #FF006E 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
         .hero p {
             font-size: 20px;
             color: rgba(224, 230, 255, 0.85);
             margin-bottom: 40px;
-            line-height: 1.8;
         }
         .cta-buttons {
             display: flex;
@@ -175,34 +137,10 @@
             justify-content: center;
             flex-wrap: wrap;
         }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-        }
-        .stat-item { text-align: center; }
-        .stat-num {
-            font-size: 48px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #00D9FF, #00FFB2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .stat-text {
-            font-size: 14px;
-            color: rgba(224, 230, 255, 0.6);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
-        }
+
         /* PROGRAMS SECTION */
         .section {
             padding: 100px 50px;
-            position: relative;
         }
         .section-title {
             font-size: 56px;
@@ -212,7 +150,6 @@
             background: linear-gradient(135deg, #00D9FF, #00FFB2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
         .programs-grid {
             display: grid;
@@ -225,31 +162,16 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 40px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            animation: fadeIn 0.8s ease-out;
+            transition: all 0.35s;
         }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.15), transparent);
-            transition: left 0.6s ease;
-        }
-        .card:hover::before { left: 100%; }
         .card:hover {
             border-color: var(--primary);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.25), inset 0 0 20px rgba(0, 217, 255, 0.08);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.25);
             transform: translateY(-8px);
         }
         .card-icon {
             font-size: 56px;
             margin-bottom: 20px;
-            display: inline-block;
             animation: bounce 3s ease-in-out infinite;
         }
         .card h3 {
@@ -260,20 +182,9 @@
         }
         .card p {
             color: rgba(224, 230, 255, 0.7);
-            margin-bottom: 25px;
-            line-height: 1.8;
-            font-size: 15px;
+            margin-bottom: 20px;
         }
-        .card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            font-size: 14px;
-        }
-        .duration { color: var(--secondary); }
-        .price { font-size: 24px; font-weight: 800; color: var(--primary); }
+
         /* VED CHATBOT */
         .ved-bot {
             position: fixed;
@@ -291,13 +202,13 @@
             cursor: pointer;
             z-index: 998;
             animation: pulse 2s ease-in-out infinite;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
         .ved-bot:hover {
             transform: scale(1.12);
             box-shadow: 0 0 40px rgba(0, 217, 255, 0.7);
         }
-        .ved-bot-panel {
+        .ved-panel {
             position: fixed;
             bottom: 120px;
             right: 110px;
@@ -306,14 +217,11 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 25px;
-            box-shadow: 0 0 50px rgba(0, 217, 255, 0.3);
             z-index: 998;
             max-height: 500px;
-            overflow-y: auto;
             display: none;
-            animation: slideUp 0.4s ease-out;
         }
-        .ved-bot-panel.active { display: block; }
+        .ved-panel.active { display: block; }
         .ved-title {
             font-size: 20px;
             font-weight: 700;
@@ -327,13 +235,13 @@
             margin: 10px 0;
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
+            transition: all 0.3s;
         }
         .ved-question:hover {
             background: rgba(0, 217, 255, 0.2);
             transform: translateX(5px);
         }
+
         /* WHATSAPP BUTTON */
         .whatsapp-btn {
             position: fixed;
@@ -348,10 +256,123 @@
             justify-content: center;
             font-size: 42px;
             box-shadow: 0 0 30px rgba(37, 211, 102, 0.5);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             z-index: 999;
             text-decoration: none;
         }
         .whatsapp-btn:hover {
             transform: scale(1.15);
-            box-shadow: 0 0 40px rgba(37, 211, 102, 0
+            box-shadow: 0 0 40px rgba(37, 211, 102, 0.8);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: rgba(5, 8, 16, 0.95);
+            padding: 60px 50px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-section {
+            margin: 30px 0;
+        }
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 8px 0;
+            color: rgba(224, 230, 255, 0.8);
+        }
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--primary);
+            color: #030616;
+            transform: scale(1.1);
+        }
+        .copyright {
+            margin-top: 30px;
+            color: rgba(224, 230, 255, 0.6);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 20px; }
+            .hero { padding: 40px 20px; }
+            .hero h1 { font-size: 36px; }
+            .section { padding: 50px 20px; }
+            .section-title { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo-container">BlueVedantAI</div>
+        <div class="nav-links">
+            <a href="#programs">Programs</a>
+            <a href="#about">About</a>
+            <button class="btn btn-secondary">Login</button>
+            <button class="btn btn-primary">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Future-Proof Your Career with Global Certifications & Industry-Led AI Programs</h1>
+            <p>Learn from industry experts. Build real-world skills. Step into the AI-powered future.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">Explore Programs</button>
+                <button class="btn btn-secondary" onclick="toggleVed()">Chat with VED</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLOBAL CERTIFICATION PROGRAMS -->
+    <section class="section" id="programs">
+        <h2 class="section-title">Global Certification Programs</h2>
+        <div class="programs-grid">
+            <div class="card">
+                <div class="card-icon">☁️</div>
+                <h3>Microsoft Azure</h3>
+                <p>AZ-900, AZ-104, AI-102 with labs, mock exams & placement support</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔶</div>
+                <h3>Amazon AWS</h3>
+                <p>AWS Solutions Architect with certification preparation & labs</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🟦</div>
+                <h3>Google Cloud</h3>
+                <p>GCP Associate Cloud Engineer with labs & mock exams</p>
+            </div>
+            <div class="card">
+                <div class
